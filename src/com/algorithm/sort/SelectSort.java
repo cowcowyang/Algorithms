@@ -18,5 +18,4 @@ public class SelectSort<T> extends AbstrctSort<T> {
 		}
 
 	}
-
 }
