@@ -1,4 +1,4 @@
-package com.aligorithm.sort;
+package com.algorithm.sort;
 
 public abstract class AbstrctSort<T> {
 

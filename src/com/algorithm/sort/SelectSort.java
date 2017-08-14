@@ -1,6 +1,6 @@
-package com.aligorithm.sort;
+package com.algorithm.sort;
 
-import com.aligorithm.util.SortTestHelper;
+import com.algorithm.util.SortTestHelper;
 
 public class SelectSort<T> extends AbstrctSort<T> {
 

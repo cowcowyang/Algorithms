@@ -1,4 +1,4 @@
-package com.aligorithm.util;
+package com.algorithm.util;
 
 import java.lang.reflect.Method;
 
