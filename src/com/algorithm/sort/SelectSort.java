@@ -12,8 +12,8 @@ public class SelectSort<T> extends AbstrctSort<T> {
 			for (int j = i + 1; j < arr.length; j++) {
 				if (arr[j].compareTo((T) arr[i]) < 0) {
 					minIdx = j;
+					SortTestHelper.swap(arr, i, minIdx);
 				}
-				SortTestHelper.swap(arr, i, minIdx);
 			}
 		}
 

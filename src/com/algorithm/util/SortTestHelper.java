@@ -35,9 +35,8 @@ public class SortTestHelper {
 		objArr[j] = x;
 	}
 
-	@SuppressWarnings("unchecked")
 	public static <T> boolean isSorted(Comparable<T>[] objArr) {
-		for (int i = 0; i < objArr.length; i++) {
+		for (int i = 0; i < objArr.length - 1; i++) {
 			if (objArr[i].compareTo((T) objArr[i + 1]) > 0) {
 				return false;
 			}
@@ -54,7 +53,7 @@ public class SortTestHelper {
 			sortMethod.invoke(sortClazz.newInstance(), new Object[]{arr});
 			long endTime = System.currentTimeMillis();
 			
-			assert(isSorted(arr));
+			assert isSorted(arr);
 			
 			System.out.println(sortClazz.getSimpleName() + ": " + (endTime - startTime) + "ms");
 			
