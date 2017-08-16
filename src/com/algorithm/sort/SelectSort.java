@@ -2,7 +2,7 @@ package com.algorithm.sort;
 
 import com.algorithm.util.SortTestHelper;
 
-public class SelectSort<T> extends AbstrctSort<T> {
+public class SelectSort<T> extends AbstractSort<T> {
 
 	@Override
 	public void sort(Comparable<T>[] arr) {
