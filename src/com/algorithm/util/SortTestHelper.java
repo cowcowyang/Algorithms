@@ -16,7 +16,7 @@ public class SortTestHelper {
 		return arr;
 	}
 
-	public static void printArr(Integer[] arr) {
+	public static void printArr(Comparable[] arr) {
 		for (int i = 0; i < arr.length; i++) {
 			System.out.print(arr[i] + " ");
 			if (i == arr.length - 1) {

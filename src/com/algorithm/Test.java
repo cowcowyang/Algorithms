@@ -1,18 +1,22 @@
 package com.algorithm;
 
+import java.util.Arrays;
+
 import com.algorithm.util.SortTestHelper;
 
 public class Test {
 	public static void main(String[] args) {
-		Integer arrSize = 100;
-		Integer[] randomArr = SortTestHelper.generateRandomArr(arrSize, 0, 10000);
-//
-//		Integer[] randomArr2 = new Integer[arrSize];
-//		System.arraycopy(randomArr, 0, randomArr2, 0, arrSize);
-//		SortTestHelper.testSoted("com.algorithm.sort.ShellSort", randomArr);
-//		SortTestHelper.testSoted("com.algorithm.sort.InsertionSort", randomArr2);
-		
-		shellSort(randomArr);
+		Integer arrSize = 10;
+		Integer[] randomArr = SortTestHelper.generateRandomArr(arrSize, 0, 100);
+		SortTestHelper.printArr(randomArr);
+		//
+		// Integer[] randomArr2 = new Integer[arrSize];
+		// System.arraycopy(randomArr, 0, randomArr2, 0, arrSize);
+		// SortTestHelper.testSoted("com.algorithm.sort.ShellSort", randomArr);
+		// SortTestHelper.testSoted("com.algorithm.sort.InsertionSort",
+		// randomArr2);
+
+		mergeSort(randomArr);
 		SortTestHelper.printArr(randomArr);
 
 	}
@@ -63,4 +67,40 @@ public class Test {
 		}
 	}
 
+	public static <T> void mergeSort(Comparable<T>[] arr) {
+		int n = arr.length;
+		recursiveMerge(arr, 0, n - 1);
+	}
+
+	public static <T> void recursiveMerge(Comparable<T>[] arr, int l, int r) {
+		if (l >= r) {
+			return;
+		}
+
+		int mid = (l + r) / 2;
+		recursiveMerge(arr, l, mid);
+		recursiveMerge(arr, mid + 1, r);
+		merge(arr, l, r, mid);
+	}
+
+	public static <T> void merge(Comparable<T>[] arr, int l, int r, int mid) {
+		Comparable<T>[] temp = Arrays.copyOfRange(arr, l, r + 1);
+		SortTestHelper.printArr(temp);
+		int i = l, j = mid + 1;
+		for (int k = l; k <= r; k++) {
+			if (i > mid) {
+				arr[k] = temp[j - l];
+				j++;
+			} else if (j > r) {
+				arr[k] = temp[i - l];
+				i++;
+			} else if (arr[i - l].compareTo((T) arr[j - l]) < 0) {
+				arr[k] = temp[i - l];
+				i++;
+			} else {
+				arr[k] = temp[j - l];
+				j++;
+			}
+		}
+	}
 }
