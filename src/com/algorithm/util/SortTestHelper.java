@@ -13,6 +13,7 @@ public class SortTestHelper {
 			int x = (int) (Math.random() * (rangeR - rangeL + 1) + rangeL);
 			arr[i] = new Integer(x);
 		}
+		System.out.println("[" + rangeL + "," + rangeR + "] , size : " + size);
 		return arr;
 	}
 
@@ -47,16 +48,16 @@ public class SortTestHelper {
 	public static <T> void testSoted(String sortClassName, Comparable<T>[] arr) {
 		try {
 			Class<?> sortClazz = Class.forName(sortClassName);
-			Method sortMethod = sortClazz.getMethod("sort", new Class[]{Comparable[].class});
-			
+			Method sortMethod = sortClazz.getMethod("sort", new Class[] { Comparable[].class });
+
 			long startTime = System.currentTimeMillis();
-			sortMethod.invoke(sortClazz.newInstance(), new Object[]{arr});
+			sortMethod.invoke(sortClazz.newInstance(), new Object[] { arr });
 			long endTime = System.currentTimeMillis();
-			
+
 			assert isSorted(arr);
-			
+
 			System.out.println(sortClazz.getSimpleName() + ": " + (endTime - startTime) + "ms");
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
