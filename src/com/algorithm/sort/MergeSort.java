@@ -13,25 +13,32 @@ public class MergeSort<T> extends AbstractSort<T> {
 	}
 
 	private void recursiveSort(Comparable<T>[] arr, int l, int r) {
-		if (l >= r) {
+		// if (l >= r) {
+		// return;
+		// }
+		// 当数组越小时为有序的状态机率越大，可用InsertionSort提高性能
+		if (r - l <= 15) {
+			InsertionSort<T> insertionSort = new InsertionSort<>();
+			insertionSort.sort(arr, l, r);
 			return;
 		}
-		
+
 		int mid = (r + l) / 2;
 		recursiveSort(arr, l, mid);
 		recursiveSort(arr, mid + 1, r);
-//		merge(arr, l, mid, r);
-		System.out.println(String.valueOf(l)+" "+ mid +" "+r);
+		if (arr[mid].compareTo((T) arr[mid + 1]) > 0) {
+			merge(arr, l, mid, r);
+		}
+		// System.out.println(String.valueOf(l)+" "+ mid +" "+r);
 	}
 
 	// merge arr[l...mid] and arr[mid+1...r]
-	private void merge(Comparable<T>[] arr, int l, int mid, int r) {
+	public void merge(Comparable<T>[] arr, int l, int mid, int r) {
 
 		Comparable<T>[] copy = Arrays.copyOfRange(arr, l, r + 1);
-		SortTestHelper.printArr(copy);
 		// i : left begin j:right begin
 		int i = l, j = mid + 1;
-		for (int k = l; k <= r; k++) { 
+		for (int k = l; k <= r; k++) {
 			if (i > mid) {// 如果左半部分元素已经全部处理完毕
 				arr[k] = copy[j - l];
 				j++;
@@ -50,7 +57,7 @@ public class MergeSort<T> extends AbstractSort<T> {
 	}
 
 	public static void main(String[] args) {
-		Integer[] randArr = SortTestHelper.generateRandomArr(10, 1, 100);
+		Integer[] randArr = SortTestHelper.generateRandomArr(8, 1, 20);
 		SortTestHelper.printArr(randArr);
 		MergeSort<Integer> mergeSort = new MergeSort<>();
 		mergeSort.sort(randArr);
