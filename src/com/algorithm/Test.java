@@ -6,16 +6,13 @@ import com.algorithm.util.SortTestHelper;
 
 public class Test {
 	public static void main(String[] args) {
-		Integer arrSize = 50000;
-		Integer[] randomArr = SortTestHelper.generateRandomArr(arrSize, 0, 100000);
-		 Integer[] randomArr2 = new Integer[arrSize];
-		 System.arraycopy(randomArr, 0, randomArr2, 0, arrSize);
-		 
-		 
+		Integer arrSize = 1000000;
+		Integer[] randomArr = SortTestHelper.generateRandomArr(arrSize, 0, 10000000);
+		Integer[] randomArr2 = new Integer[arrSize];
+		System.arraycopy(randomArr, 0, randomArr2, 0, arrSize);
 
-		 SortTestHelper.testSoted("com.algorithm.sort.InsertionSort",
-		 randomArr);
-		 SortTestHelper.testSoted("com.algorithm.sort.MergeSort", randomArr);
+		SortTestHelper.testSoted("com.algorithm.sort.QuickSort", randomArr);
+		SortTestHelper.testSoted("com.algorithm.sort.MergeSort", randomArr2);
 
 	}
 
