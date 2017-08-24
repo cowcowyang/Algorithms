@@ -41,7 +41,7 @@ public class QuickSortTwoWays<T> extends AbstractSort<T> {
 
 	private int partition(Comparable<T>[] arr, int l, int r) {
 		// 随机交换arr[l]，防止顺序数列使quick sort退化为O(n^2)
-		SortTestHelper.swap(arr, l, (int) (Math.random() * (r - l + 1)) + l);
+//		SortTestHelper.swap(arr, l, (int) (Math.random() * (r - l + 1)) + l);
 
 		Comparable<T> v = arr[l];
 		int i = l + 1, j = r;
@@ -66,5 +66,12 @@ public class QuickSortTwoWays<T> extends AbstractSort<T> {
 		SortTestHelper.swap(arr, l, j);
 
 		return j;
+	}
+	
+	public static void main(String[] args) {
+		Integer[] randomArr = SortTestHelper.generateRandomArr(10, 0, 20);
+		QuickSortTwoWays<Integer> sortTwoWays = new QuickSortTwoWays<>();
+		sortTwoWays.sort(randomArr);
+		SortTestHelper.printArr(randomArr);
 	}
 }
