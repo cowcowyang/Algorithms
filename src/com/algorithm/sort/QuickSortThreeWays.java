@@ -3,13 +3,10 @@ package com.algorithm.sort;
 import com.algorithm.util.SortTestHelper;
 
 /**
- * 三路快速排序，将数组分为<v 、=v 、>v三部分，
- * 递归排序<v和 >v部分，所以在处理重复率较高的数组时效率显著提升
+ * 三路快速排序，将数组分为<v 、=v 、>v三部分， 递归排序<v和 >v部分，所以在处理重复率较高的数组时效率显著提升
  * 
- * [0,10] , size : 1000000
-	QuickSortThreeWays: 69ms
-	QuickSortTwoWays: 182ms
-	MergeSort: 276ms
+ * [0,10] , size : 1000000 QuickSortThreeWays: 69ms QuickSortTwoWays: 182ms
+ * MergeSort: 276ms
  * 
  * @author fyang
  *
