@@ -33,10 +33,10 @@ public class QuickSort<T> extends AbstractSort<T> {
 			}
 		}
 		SortTestHelper.swap(arr, l, j);
-		
+
 		return j;
 	}
-	
+
 	public static void main(String[] args) {
 		Integer[] randomArr = SortTestHelper.generateRandomArr(10, 0, 25);
 		QuickSort<Integer> quickSort = new QuickSort<>();
