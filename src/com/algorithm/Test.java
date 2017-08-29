@@ -7,16 +7,21 @@ import com.algorithm.util.SortTestHelper;
 public class Test {
 	public static void main(String[] args) {
 		Integer arrSize = 1000000;
-		Integer[] randomArr = SortTestHelper.generateRandomArr(arrSize, 0, 10);
+		Integer[] randomArr = SortTestHelper.generateRandomArr(arrSize, 0, 1000000);
 		Integer[] randomArr2 = new Integer[arrSize];
 		Integer[] randomArr3 = new Integer[arrSize];
+		Integer[] randomArr4 = new Integer[arrSize];
+		Integer[] randomArr5 = new Integer[arrSize];
 		System.arraycopy(randomArr, 0, randomArr2, 0, arrSize);
 		System.arraycopy(randomArr, 0, randomArr3, 0, arrSize);
+		System.arraycopy(randomArr, 0, randomArr4, 0, arrSize);
+		System.arraycopy(randomArr, 0, randomArr5, 0, arrSize);
 		
 		SortTestHelper.testSoted("com.algorithm.sort.QuickSortThreeWays", randomArr);
 		SortTestHelper.testSoted("com.algorithm.sort.QuickSortTwoWays", randomArr2);
 		SortTestHelper.testSoted("com.algorithm.sort.MergeSort", randomArr3);
-
+		SortTestHelper.testSoted("com.algorithm.sort.HeapSort", randomArr4);
+		SortTestHelper.testSoted("com.algorithm.sort.HeapifySort", randomArr5);
 	}
 
 	private static <T> void insertionSort(Comparable<T>[] arr) {
