@@ -12,16 +12,20 @@ public class Test {
 		Integer[] randomArr3 = new Integer[arrSize];
 		Integer[] randomArr4 = new Integer[arrSize];
 		Integer[] randomArr5 = new Integer[arrSize];
+		Integer[] randomArr6 = new Integer[arrSize];
 		System.arraycopy(randomArr, 0, randomArr2, 0, arrSize);
 		System.arraycopy(randomArr, 0, randomArr3, 0, arrSize);
 		System.arraycopy(randomArr, 0, randomArr4, 0, arrSize);
 		System.arraycopy(randomArr, 0, randomArr5, 0, arrSize);
+		System.arraycopy(randomArr, 0, randomArr6, 0, arrSize);
 		
 		SortTestHelper.testSoted("com.algorithm.sort.QuickSortThreeWays", randomArr);
 		SortTestHelper.testSoted("com.algorithm.sort.QuickSortTwoWays", randomArr2);
 		SortTestHelper.testSoted("com.algorithm.sort.MergeSort", randomArr3);
 		SortTestHelper.testSoted("com.algorithm.sort.HeapSort", randomArr4);
 		SortTestHelper.testSoted("com.algorithm.sort.HeapifySort", randomArr5);
+		SortTestHelper.testSoted("com.algorithm.sort.FinalHeapSort", randomArr6);
+		
 	}
 
 	private static <T> void insertionSort(Comparable<T>[] arr) {
